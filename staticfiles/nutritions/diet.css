@@ -1,0 +1,38 @@
+main {
+  padding: 4rem 0 10rem 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main_items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 10px;
+}
+
+.main_items_head {
+  color: #fd7702;
+  font-size: 3em;
+}
+
+.main_items_desc {
+  font-size: 2em;
+  color: rgb(189, 189, 189);
+}
+
+.notification {
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  border: 2px solid #fd7702;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3em;
+}

@@ -1,0 +1,77 @@
+.main {
+  display: flex;
+  height: 100vh;
+  padding: 5rem 0 10rem 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 5rem;
+}
+
+.profile_info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.9rem;
+  font-size: 14px;
+}
+
+.profile_head {
+  color: #fd7702;
+  font-size: 3em;
+  padding-bottom: 1rem;
+}
+
+.profile_preference,
+.profile_weight,
+.profile_age,
+.profile_height,
+.profile_gender {
+  font-size: 1.8em;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.profile_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 10px;
+}
+
+.edit_btn,
+.logout_btn {
+  font-size: 2em;
+  color: #000;
+  font-weight: 600;
+  border-radius: 15px;
+  border: 2px solid #fd7702;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.notification_btn {
+  font-size: 2em;
+  color: #000;
+  border-radius: 50%;
+  border: 2px solid #fd7702;
+  max-width: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  cursor: pointer;
+}

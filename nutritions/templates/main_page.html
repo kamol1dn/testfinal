@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MealHarmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'nutritions/style.css' %}" />
+
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navigation">
+          <div class="nav_items">
+            <div class="icon_wrapper">
+              <a href="/mealPage/"><i class="fa-solid fa-basket-shopping"></i></a>
+            </div>
+            <div class="icon_wrapper">
+              <a href="/"><i class="fa-solid fa-house"></i></a>
+            </div>
+              {% if request.user.is_authenticated %}
+                  <div class="icon_wrapper">
+              <a href="settings/"><i class="fa-solid fa-gear"></i></a>
+            </div>
+              {% else %}
+                  <div class="icon_wrapper">
+              <a href="login/"><i class="fa-solid fa-user"></i></a>
+            </div>
+
+              {% endif %}
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="main_items">
+          <div class="main_items_wrapper">
+              {% if request.user.is_authenticated %}
+                {% if user_info.age == 0 %}
+            <a class="main_items_wrapper_btn" href="/userinfo/">Meal Plan</a>
+                    {% elif user_schedule != 0 %}
+            <a class="main_items_wrapper_btn" href="/mealPage/">Meal Plan</a>
+                    {% else %}
+                    <a class="main_items_wrapper_btn" href="/mealPageGeneration/">Meal Plan</a>
+                    {% endif %}
+              {% else %}
+              <a class="main_items_wrapper_btn" href="/login/">Meal Plan</a>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

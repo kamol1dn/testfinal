@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planned Meals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fdeedc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-btn {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #fd8e39;
+            color: #fdeedc;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .meal-options {
+            display: none;
+            padding: 10px;
+            background-color: #fdeedc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .meal-options p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: black;
+        }
+
+        .meal-options strong {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'nutritions/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'nutritions/edit.css' %}" />
+</head>
+<header>
+      <div class="container">
+        <nav class="navigation">
+          <div class="nav_items">
+            <div class="icon_wrapper">
+              <a href="/mealPage/"><i class="fa-solid fa-basket-shopping"></i></a>
+            </div>
+            <div class="icon_wrapper">
+              <a href="/"><i class="fa-solid fa-house"></i></a>
+            </div>
+            {% if request.user.is_authenticated %}
+                  <div class="icon_wrapper">
+              <a href="/settings/"><i class="fa-solid fa-gear"></i></a>
+            </div>
+              {% else %}
+                  <div class="icon_wrapper">
+              <a href="/login/"><i class="fa-solid fa-user"></i></a>
+            </div>
+
+              {% endif %}
+          </div>
+        </nav>
+      </div>
+    </header>
+<body>
+
+<div class="container">
+    <button class="day-btn" onclick="toggleMeals('monday')">Monday</button>
+    <div id="monday" class="meal-options">
+        <p><strong>Breakfast:</strong> {{ user_schedule.monday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.monday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.monday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('tuesday')">Tuesday</button>
+    <div id="tuesday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.tuesday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.tuesday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.tuesday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('wednesday')">Wednesday</button>
+    <div id="wednesday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.wednesday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.wednesday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.wednesday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('thursday')">Thursday</button>
+    <div id="thursday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.thursday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.thursday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.thursday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('friday')">Friday</button>
+    <div id="friday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.friday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.friday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.friday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('saturday')">Saturday</button>
+    <div id="saturday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.saturday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.saturday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.saturday_dinner }}</p>
+    </div>
+
+    <button class="day-btn" onclick="toggleMeals('sunday')">Sunday</button>
+    <div id="sunday" class="meal-options">
+        <p><strong>Breakfast:</strong>{{ user_schedule.sunday_break }}</p>
+        <p><strong>Lunch:</strong>{{ user_schedule.sunday_lunch }}</p>
+        <p><strong>Dinner:</strong>{{ user_schedule.sunday_dinner }}</p>
+    </div>
+</div>
+
+<script>
+    function toggleMeals(day) {
+        var x = document.getElementById(day);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
