@@ -56,9 +56,8 @@ WSGI_APPLICATION = 'HackProj.wsgi.application'
 
 # Database configuration using DATABASE_URL
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
